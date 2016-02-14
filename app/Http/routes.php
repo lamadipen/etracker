@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::resource('advisor','AdvisorController');
+Route::resource('service_type','ServiceTypeController');
+Route::resource('setting','SettingController');
+Route::get('invite', function() { return View::make('advisor.advisor_invite'); });
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
