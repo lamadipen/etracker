@@ -1,6 +1,8 @@
         @extends('advisor.adv_master')
         
         @section('body_template')
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
           <!-- Main content -->
         <section class="content">       
 
@@ -18,7 +20,7 @@
                   <div class="row">
                     <div class="col-md-9 col-sm-8">
                       <div class="pad col-md-12">
-                              {!! Form::model($advisor, array('route' =>array('advisor.update',$advisor->id), 'method' => 'PUT')) !!}
+                              {!! Form::model($advisor, array('route' =>array('advisor.update',$advisor->adv_id), 'method' => 'PUT')) !!}
                                 <div class="form-group">
                                     <label>First Name</label>
                                     {!! Form::text('fname', $advisor->adv_fname ,['class' => 'form-control', 'placeholder' => 'First name']) !!}
