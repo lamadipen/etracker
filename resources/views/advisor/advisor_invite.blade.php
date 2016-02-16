@@ -38,7 +38,7 @@
                           </div>
                           <hr />
                           <div class="input-group">
-                            <button class="btn btn-block btn-primary">Send Invitation</button>
+                            <a class="btn btn-block btn-primary" href="{{ url('/advisor/send_invitation') }}">Send Invitation</a>
                           </div>
                           
                       </div>

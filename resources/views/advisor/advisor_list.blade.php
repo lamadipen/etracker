@@ -49,9 +49,9 @@
     									<td> {{ $counter++ }}</td>
     									<td>{{ $advisor->adv_fname." ".$advisor->adv_lname }} </td>
     									<td>@if ($advisor->is_active == true)
-                                                <img src="{{ asset('dist/img/yes.png') }}" class="img-circle" alt="true"/> 
+                                                <img src="{{ asset('backend/dist/img/yes.png') }}" class="img-circle" alt="true"/> 
                                             @else 
-                                                <img src="{{ asset('dist/img/x.png') }}" class="img-circle" alt="true" /> 
+                                                <img src="{{ asset('backend/dist/img/x.png') }}" class="img-circle" alt="true" /> 
                                             @endif
                                         </td>
                                         <td>

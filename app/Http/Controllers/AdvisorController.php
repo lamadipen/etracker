@@ -116,5 +116,28 @@ class AdvisorController extends Controller {
         
         return redirect()->route('advisor.index');
 	}
+    
+     /**
+     * Send an e-mail reminder to the user.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function sendEmailInvitation(Request $request)
+    {
+        
+        return view('advisor.advisor_invite');
+        echo "hello";
+        return redirect()->route('invite');
+        
+    
+        Mail::send('advisor.emails.reminder', array('test' => 'test'), function ($message){
+            $message->from('lamadipen@gmail.com', 'Your Application');
+            $message->to('lamadipen@hotmail.com')->subject('Your Reminder!');
+        });
+        
+        
+    }
 
 }

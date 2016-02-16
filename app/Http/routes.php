@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('advisor/send_invitation','AdvisorController@sendEmailInvitation');
 Route::resource('advisor','AdvisorController');
 Route::resource('service_type','ServiceTypeController');
 Route::resource('setting','SettingController');
