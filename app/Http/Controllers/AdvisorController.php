@@ -9,6 +9,15 @@ use App\Advisor;
 
 class AdvisorController extends Controller {
 
+    public function __construct()
+    {
+        if (Auth::check()) {
+            // The user is logged in...
+            echo "not loged in";
+            exit();
+        }
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -67,6 +76,8 @@ class AdvisorController extends Controller {
 	public function show($id)
 	{
 		//
+        $advisor = Advisor::find($id);
+        return view('advisor.advisor_profile')->with('advisor',$advisor);
 	}
 
 	/**

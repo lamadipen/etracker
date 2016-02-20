@@ -337,7 +337,7 @@
               </a>
             </li>
             <li>
-              <a href="{{ url('/advisor/1') }}">
+              <a href="pages/mailbox/mailbox.html">
                 <i class="fa fa-envelope"></i> <span>My Profile</span>
               </a>
             </li>
