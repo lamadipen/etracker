@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Advisor;
+use Auth;
+use Redirect;
 
 class AdvisorController extends Controller {
 
@@ -57,7 +59,7 @@ class AdvisorController extends Controller {
 		$advisor = new Advisor();
         $advisor->adv_fname = $request->fname;
         $advisor->adv_lname = $request->lname;
-        $advisor->adv_password = $request->password;
+        $advisor->adv_password = bcrypt($request->password);
         $advisor->adv_email = $request->email;
         $advisor->is_active = true;
         
@@ -146,9 +148,30 @@ class AdvisorController extends Controller {
         Mail::send('advisor.emails.reminder', array('test' => 'test'), function ($message){
             $message->from('lamadipen@gmail.com', 'Your Application');
             $message->to('lamadipen@hotmail.com')->subject('Your Reminder!');
-        });
-        
-        
+        });   
+    }
+    
+    /**
+     * Handle an authentication attempt.
+     *
+     * @return Response
+     */
+    public function authenticate(Request $request)
+    {                   
+        $email = $request->identity;
+        $password = $request->password;        
+    
+        if (Auth::attempt(['adv_email' => $email, 'password' => $password])) {
+            
+            // Redirect::to('advisor')->send();
+            // Authentication passed... 
+            return redirect()->intended('advisor');        
+        } 
+        else
+        {
+            echo "Fail";
+            return redirect()->route('advisor/advisor.login');
+        }         
     }
 
 }

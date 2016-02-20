@@ -16,16 +16,24 @@ Route::get('/', function () {
 });
 
 //advisor controller
+=======
+Route::group(['prefix' => 'adv'],function(){
+
+
+});
+
 Route::get('advisor/send_invitation','AdvisorController@sendEmailInvitation');
+Route::get('advisor/login', function() { return View::make('advisor.adv_login'); });
+Route::post('advisor/login', 'AdvisorController@authenticate'); 
+
 Route::resource('advisor','AdvisorController');
 Route::resource('service_type','ServiceTypeController');
 Route::resource('setting','SettingController');
 Route::get('invite', function() { return View::make('advisor.advisor_invite'); });
 
-
 Route::resource('student_service','StudentController');
 
-
+Route::get('advisor/logout', function(){ Auth::logout() ; return View::make('advisor.adv_login');});
 
 
 /*

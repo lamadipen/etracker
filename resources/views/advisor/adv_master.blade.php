@@ -262,7 +262,7 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="{{ url('advisor/logout') }}" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -277,6 +277,9 @@
         </nav>
       </header>
       
+      
+      @if (Auth::guest())
+    		  
       @section('left_nav_template')
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
@@ -346,6 +349,9 @@
         <!-- /.sidebar -->
       </aside>
       @show
+      @else
+    
+      @endif
       
       @section('body_template')  
    <div class="content-wrapper">
