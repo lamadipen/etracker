@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 //advisor controller
-=======
+
 Route::group(['prefix' => 'adv'],function(){
 
 
