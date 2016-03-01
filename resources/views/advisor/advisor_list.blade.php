@@ -6,13 +6,9 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-           Dash
-            <small>Version 2.0</small>
+           Advisor 
+            <small>Section</small>
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-          </ol>
         </section>
 
         <!-- Main content -->
@@ -30,14 +26,14 @@
                 
                 <div class="box-body no-padding">
                   <div class="row">
-                    <div class="col-md-9 col-sm-8">
+                    <div class="col-md-10 col-sm-9">
                       <div class="pad col-md-12">
                         		<a href="{{ url('/advisor/create') }}" class="btn btn-primary btn-sm">Add Advisor</a>
                             <table class="table">
     							<thead>
-    								<tr>
-    									<th>S.N</th>
+    								<tr>    								
     									<th>Name</th>
+                                        <th>Email</th>
     									<th>Active</th>
                                         <th>Action</th>
     								</tr>
@@ -46,8 +42,8 @@
                                     <?php $counter = 1;?>
                                     @foreach($advisors as $advisor)
     								<tr>
-    									<td> {{ $counter++ }}</td>
     									<td>{{ $advisor->adv_fname." ".$advisor->adv_lname }} </td>
+                                        <td>{{ $advisor->adv_email }} </td>
     									<td>@if ($advisor->is_active == true)
                                                 <img src="{{ asset('backend/dist/img/yes.png') }}" class="img-circle" alt="true"/> 
                                             @else 
@@ -56,7 +52,7 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-primary  btn-xs" href="{{ route('advisor.edit', $advisor->adv_id) }}">Edit</a> | 
-                                            {!! Form::open(array('url' => 'advisor/' . $advisor->adv_id)) !!}
+                                            {!! Form::open(array('url' => 'advisor/' . $advisor->adv_id, 'class' => 'btn btn-xs')) !!}
                                                 {!! Form::hidden('_method', 'DELETE') !!}
                                                 {!! Form::submit('Delete', array('class' => 'btn btn-danger btn-xs')) !!}
                                             {!! Form::close() !!}

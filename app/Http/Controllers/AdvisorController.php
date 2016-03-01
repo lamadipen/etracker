@@ -105,12 +105,17 @@ class AdvisorController extends Controller {
 	{
 		//
         $advisor = Advisor::find($id);
-        $advisor_update = $request->all();
-        //$advisor->name = $request->name;
-        //$advisor->status = $request->status;
+        //$advisor_update = $request->all();
+        
+        $advisor_update['adv_fname'] = $request->fname;
+        $advisor_update['adv_lname'] = $request->lname;
+        $advisor_update['adv_email'] = $request->email; 
+        if(!empty($request->password))
+        {
+           $advisor_update['adv_password'] = bcrypt($request->password); 
+        }
+        
         $advisor->update($advisor_update);
-
-        //$category->fill($input)->save();
         
         return redirect()->route('advisor.index');
 	}

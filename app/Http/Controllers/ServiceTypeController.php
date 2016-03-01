@@ -87,9 +87,10 @@ class ServiceTypeController extends Controller {
 	{
 		//
         $service_type = ServiceType::find($id);
-        $service_type->serty_name = Input::get('name');
+       
+        $service_type->serty_name = Input::get('serty_name');
               
-        $service_type->save();
+        echo $service_type->save();
         
         return Redirect::to('service_type');
 	}

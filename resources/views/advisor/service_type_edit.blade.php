@@ -4,14 +4,12 @@
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
-           Dash
-            <small>Version 2.0</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-          </ol>
+        	<h1>
+        		Service Type
+        		<small>
+        			Section
+        		</small>
+        	</h1>
         </section>
 
         <!-- Main content -->
@@ -32,12 +30,12 @@
                     <div class="col-md-9 col-sm-8">
                       <div class="pad col-md-6">
 
-                        {!! Form::model($service_type, array('route' =>array('service_type.update',$service_type->id), 'method' => 'PUT')) !!}
+                        {!! Form::model($service_type, array('route' =>array('service_type.update',$service_type->serty_id), 'method' => 'PUT')) !!}
                                 <div class="form-group">
                                     <label>Service Name</label>
                                     {!! Form::text('serty_name', $service_type->serty_name ,['class' => 'form-control', 'placeholder' => 'Service name']) !!}
                                 </div>
-                                {!! Form::submit('Add', ['class' => 'btn btn-primary']) !!}
+                                {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
                             
                         {!! Form::close() !!}
                       </div>

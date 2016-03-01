@@ -3,7 +3,14 @@
         @section('body_template')
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-          <!-- Main content -->
+        <section class="content-header">
+          <h1>
+           Advisor 
+            <small>Section</small>
+          </h1>
+        </section>
+        
+        <!-- Main content -->
         <section class="content">       
 
           <!-- Main row -->
