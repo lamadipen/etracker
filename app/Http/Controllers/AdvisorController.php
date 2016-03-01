@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Advisor;
 use Auth;
 use Redirect;
+use Mail;
 
 class AdvisorController extends Controller {
 
@@ -145,15 +146,16 @@ class AdvisorController extends Controller {
     public function sendEmailInvitation(Request $request)
     {
         
-        return view('advisor.advisor_invite');
-        echo "hello";
-        return redirect()->route('invite');
+       // return view('advisor.advisor_invite');
+       // echo "hello";
+       // return redirect()->route('invite');
         
     
-        Mail::send('advisor.emails.reminder', array('test' => 'test'), function ($message){
-            $message->from('lamadipen@gmail.com', 'Your Application');
+        Mail::send('advisor.mails.invitation', array('test' => 'test'), function ($message){
+            $message->from('lamadipen@yahoo.com', 'Your Application');
             $message->to('lamadipen@hotmail.com')->subject('Your Reminder!');
         });   
+        echo "Hello";
     }
     
     /**
