@@ -4,8 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\Advisor;
+use App\Student;
 use Auth;
 use Redirect;
 use Mail;
@@ -145,20 +147,49 @@ class AdvisorController extends Controller {
      */
     public function sendEmailInvitation(Request $request)
     {
-        
-       // return view('advisor.advisor_invite');
- 
-        $email = $request->email;
-      
         Mail::send('advisor.mails.invitation', array('test' => 'test'), function ($message){
             $message->from('lamadipen@yahoo.com', 'Your Application');
-            $message->to("$email")->subject('Your Reminder!');
-        });  
-        
-        echo $email;
-        //return redirect()->route('invite'); 
-        
+            $message->to(Input::get('email'))->subject('Your Reminder!');
+        });        
+        return view('advisor.advisor_invite');  
     }
+    
+    /**
+     * Display a listing of all students.
+     *
+     * @return Response
+     */
+    public function listAllStudent()
+    {
+        $student_all = Student::all();
+
+        return view('advisor.manage_student_list')->with('students', $student_all);
+    }
+   
+   /**
+     * Display detail information of a student
+     * @param $id => student id 
+     * @return Response
+    */
+   public function getStudentDetail($id =null)
+   {
+        //$student = Student::find($id);
+        
+        //return view('advisor.advisor_profile')->with('advisor',$advisor);
+        
+        $students = \DB::table('students')
+            ->select('students.std_id',
+            'students.std_fname',
+            'students.std_lname',
+            'students.std_email',
+            'students.std_isActive',
+            'volunteer_hours.vh_done')
+            ->join('volunteer_hours', 'volunteer_hours.std_id', '=', 'students.std_id')
+            ->get();
+            
+            var_dump($students);
+   } 
+    
     
     /**
      * Handle an authentication attempt.

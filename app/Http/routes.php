@@ -24,6 +24,9 @@ Route::group(['prefix' => 'adv'],function(){
 
 
 Route::get('advisor/login', function() { return View::make('advisor.adv_login'); });
+Route::get('advisor/manage_student', 'AdvisorController@listAllStudent');
+Route::get('advisor/manage_student', 'AdvisorController@getStudentDetail');
+
 Route::post('advisor/send_invitation','AdvisorController@sendEmailInvitation');
 Route::post('advisor/login', 'AdvisorController@authenticate'); 
 
