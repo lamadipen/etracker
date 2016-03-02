@@ -30,18 +30,20 @@
                 <div class="box-body no-padding">
                   <div class="row">
                     <div class="col-md-9 col-sm-8">
+                    <form method="post" action="{{ url('/advisor/send_invitation') }}" role="form" accept-charset="UTF-8" >
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <div class="pad col-md-6">
                           <label>Email address</label>
                           <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input type="email" class="form-control" placeholder="Email" />
+                            <input type="email" class="form-control" placeholder="Email" name="email" />
                           </div>
                           <hr />
                           <div class="input-group">
-                            <a class="btn btn-block btn-primary" href="{{ url('/advisor/send_invitation') }}">Send Invitation</a>
+                          <input type="submit" class="btn btn-block btn-primary" value="Send Invitation"/> 
                           </div>
-                          
                       </div>
+                    </form> 
                     </div><!-- /.col -->
 
                   </div><!-- /.row -->

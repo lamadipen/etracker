@@ -22,8 +22,9 @@ Route::group(['prefix' => 'adv'],function(){
 
 });
 
-Route::get('advisor/send_invitation','AdvisorController@sendEmailInvitation');
+
 Route::get('advisor/login', function() { return View::make('advisor.adv_login'); });
+Route::post('advisor/send_invitation','AdvisorController@sendEmailInvitation');
 Route::post('advisor/login', 'AdvisorController@authenticate'); 
 
 Route::resource('advisor','AdvisorController');

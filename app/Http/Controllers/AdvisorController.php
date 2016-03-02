@@ -147,15 +147,17 @@ class AdvisorController extends Controller {
     {
         
        // return view('advisor.advisor_invite');
-       // echo "hello";
-       // return redirect()->route('invite');
-        
-    
+ 
+        $email = $request->email;
+      
         Mail::send('advisor.mails.invitation', array('test' => 'test'), function ($message){
             $message->from('lamadipen@yahoo.com', 'Your Application');
-            $message->to('lamadipen@hotmail.com')->subject('Your Reminder!');
-        });   
-        echo "Hello";
+            $message->to("$email")->subject('Your Reminder!');
+        });  
+        
+        echo $email;
+        //return redirect()->route('invite'); 
+        
     }
     
     /**
