@@ -18,11 +18,12 @@ class ServiceTypeController extends Controller {
 	public function index()
 	{
 		//
+ 
         $service_type_all = ServiceType::all();
         $data['main_tilte'] = 'Advisor Panel';
         $data['sub_title'] = "List Advisor";
         $date['services'] = $service_type_all;
-    
+          
         return view('advisor.service_type_list')->with('service_type_all', $service_type_all);
 	}
 

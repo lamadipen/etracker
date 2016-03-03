@@ -20,11 +20,14 @@ class SettingController extends Controller {
 	public function index()
 	{
 		//
-        $settings = Setting::all();
+        /**
         $data['main_tilte'] = 'Advisor Panel';
         $data['sub_title'] = "List Advisor";
         $date['services'] = $settings;
-        
+        **/
+          
+        $settings = Setting::with('serviceType')->get();
+
         return view('advisor.setting_list')->with('settings', $settings);
 	}
 
@@ -76,6 +79,8 @@ class SettingController extends Controller {
 	public function edit($id)
 	{
 		//
+        $setting = Setting::find($id);
+        return view('advisor/service_type_edit')->with('service_type',$service_type);
 	}
 
 	/**
@@ -87,6 +92,13 @@ class SettingController extends Controller {
 	public function update($id)
 	{
 		//
+        $service_type = ServiceType::find($id);
+       
+        $service_type->serty_name = Input::get('serty_name');
+              
+        echo $service_type->save();
+        
+        return Redirect::to('service_type');
 	}
 
 	/**

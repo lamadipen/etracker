@@ -286,7 +286,7 @@
               </a>
             </li>
             <li>
-              <a href="pages/mailbox/mailbox.html">
+              <a href="{{ url('advisor/manage_student')}}">
                 <i class="fa fa-envelope"></i> <span>Manage Student</span>
               </a>
             </li>

@@ -6,13 +6,9 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-           Dash
-            <small>Version 2.0</small>
+           Hour Setting
+            <small>Section</small>
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-          </ol>
         </section>
 
         <!-- Main content -->
@@ -25,7 +21,7 @@
               <!-- MAP & BOX PANE -->
               <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Create </h3>
+                  <h3 class="box-title">List Hour</h3>
                 </div><!-- /.box-header -->
                 
                 <div class="box-body no-padding">
@@ -36,7 +32,6 @@
                             <table class="table">
     							<thead>
     								<tr>
-    									<th>S.N</th>
     									<th>Name</th>
     									<th>Hour</th>
                                         <th>Action</th>
@@ -46,14 +41,13 @@
                                     <?php $counter = 1;?>
                                     @foreach($settings as $setting)
     								<tr>
-    									<td> {{ $counter++ }}</td>
-    									<td>{{ $setting->serty_id }}</td>
+    									<td>{{ $setting->serviceType->serty_name }}</td>
     									<td>{{ $setting->sett_hour }}</td>
                                         <td>
-                                            <a class="btn btn-green btn-xs" href="{{ route('setting.edit', $setting->sett_id) }}">Edit</a> | 
-                                            {!! Form::open(array('url' => 'setting/' . $setting->sett_id)) !!}
+                                            <a class="btn btn-primary  btn-xs" href="{{ route('setting.edit', $setting->sett_id) }}">Edit</a> | 
+                                            {!! Form::open(array('url' => 'setting/' . $setting->sett_id, 'class' => 'btn btn-xs')) !!}
                                                 {!! Form::hidden('_method', 'DELETE') !!}
-                                                {!! Form::submit('Delete', array('class' => 'btn btn-red btn-xs')) !!}
+                                                {!! Form::submit('Delete', array('class' => 'btn btn-danger btn-xs')) !!}
                                             {!! Form::close() !!}
                                             
                                         </td>
