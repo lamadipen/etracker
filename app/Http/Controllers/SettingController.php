@@ -80,7 +80,9 @@ class SettingController extends Controller {
 	{
 		//
         $setting = Setting::find($id);
-        return view('advisor/service_type_edit')->with('service_type',$service_type);
+        $service_types = ServiceType::All();
+        
+        return view('advisor/setting_edit')->with('setting',$setting)->with('service_types',$service_types);
 	}
 
 	/**
