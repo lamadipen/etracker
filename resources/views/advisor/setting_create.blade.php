@@ -27,17 +27,21 @@
                   <div class="row">
                     <div class="col-md-9 col-sm-8">
                       <div class="pad col-md-6">
+                            <div class="form-group">
+                                    <label>Current Hour</label>
+                                    <input type="text" class="form-control" placeholder="" name="" value="25" disabled/>
+                            </div>
                         {!! Form::open(array('url' => 'setting')) !!}
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Service Type</label>
                                     <select class="form-control" name="serty_id">
                                         @foreach($service_types as $service_type)
                                             <option value="{{ $service_type->serty_id}}">{{ $service_type->serty_name}}</option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
-                                    <label>Hour</label>
+                                    <label>Set New Hour</label>
                                     {!! Form::text('hour', '' ,['class' => 'form-control', 'placeholder' => 'hour']) !!}
                                 </div>                                                             
                                     {!! Form::submit('Add', ['class' => 'btn btn-primary']) !!}

@@ -234,4 +234,8 @@ class AdvisorController extends Controller {
         }         
     }
 
+    public function getLogin(){
+            return view('hello');
+    }
+
 }
