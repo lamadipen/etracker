@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
 
 use App\Setting;
 use App\ServiceType;
@@ -94,13 +95,14 @@ class SettingController extends Controller {
 	public function update($id)
 	{
 		//
-        $service_type = ServiceType::find($id);
-       
-        $service_type->serty_name = Input::get('serty_name');
-              
-        echo $service_type->save();
+        $setting = Setting::find($id);
+  
+        $setting->serty_id = Input::get('serty_id');
+        $setting->sett_hour = Input::get('hour');
         
-        return Redirect::to('service_type');
+        $setting->save();
+        
+        return Redirect::to('setting');
 	}
 
 	/**

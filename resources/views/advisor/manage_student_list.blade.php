@@ -35,29 +35,20 @@
                                         <th>Email</th>
                                         <th>Work Hour</th>
     									<th>Active</th>
-                                        <th>Action</th>
     								</tr>
     							</thead>
     							<tbody>
                                     <?php $counter = 1;?>
                                     @foreach($students as $student)
     								<tr>
-    									<td>{{ $student->std_fname." ".$student->std_lname }} </td>
+    									<td><a href="{{ url('advisor/student_detail/'.$student->std_id ) }}" >{{ $student->std_fname." ".$student->std_lname }} </a></td>
                                         <td>{{ $student->std_email }} </td>
-                                        <td></td>
+                                        <td>{{ $student->vh_done}} </td>
     									<td>@if ($student->std_isActive == true)
                                                 <img src="{{ asset('backend/dist/img/yes.png') }}" class="img-circle" alt="true"/> 
                                             @else 
                                                 <img src="{{ asset('backend/dist/img/x.png') }}" class="img-circle" alt="true" /> 
                                             @endif
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-primary  btn-xs" href="{{ route('advisor.edit', $student->std_id) }}">Edit</a> | 
-                                            {!! Form::open(array('url' => 'advisor/' . $student->std_id, 'class' => 'btn btn-xs')) !!}
-                                                {!! Form::hidden('_method', 'DELETE') !!}
-                                                {!! Form::submit('Delete', array('class' => 'btn btn-danger btn-xs')) !!}
-                                            {!! Form::close() !!}
-                                            
                                         </td>
     								</tr>
     							    @endforeach 

@@ -177,17 +177,28 @@ class AdvisorController extends Controller {
         
         //return view('advisor.advisor_profile')->with('advisor',$advisor);
         
-        $students = \DB::table('students')
+        $student = \DB::table('students')
             ->select('students.std_id',
             'students.std_fname',
             'students.std_lname',
             'students.std_email',
             'students.std_isActive',
-            'volunteer_hours.vh_done')
+            'students.std_gradYear',
+            'volunteer_hours.vh_done',
+            'services.ser_name',
+            'services.ser_desc'
+           )
             ->join('volunteer_hours', 'volunteer_hours.std_id', '=', 'students.std_id')
+            ->join('services', 'services.std_id', '=', 'students.std_id')
+            ->where('students.std_id','=',$id)
             ->get();
             
-            var_dump($students);
+            $student = array_map(function($object){
+                return (array) $object;
+            }, $student);
+                        
+            //var_dump($student);
+            return view('advisor.manage_student_dtl', ['student' => $student]);
    } 
     
     
