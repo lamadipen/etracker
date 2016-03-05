@@ -31,7 +31,8 @@
                       
                               <!-- info row -->
                               <div class="row invoice-info">
-                                <div class="col-sm-4 invoice-col">
+                              
+                                <div class="col-sm-3 invoice-col">
                                 <strong>Individual Detail</strong><br>
                                   <address>
                                     <strong>Name</strong><br>
@@ -44,24 +45,40 @@
                                     
                                   </address>
                                 </div><!-- /.col -->
-                                <div class="col-sm-4 invoice-col">
+                                <div class="col-sm-3 invoice-col">
                                  <strong>Volunteer Detail</strong><br>
                                   <address>
                                     <strong>Service</strong><br>
                                     {{ $student[0]['ser_name'] }}<br>
-                                    <strong>Service</strong><br>
+                                    <strong>Description</strong><br>
                                     {{ $student[0]['ser_desc'] }}<br>
                                     <strong>Hours</strong><br>
                                     {{ $student[0]['vh_done'].' hr'}}
                                   </address>
                                 </div><!-- /.col -->
-                                <div class="col-sm-4 invoice-col">
+                                <div class="col-sm-3 invoice-col">
                                   <strong>Superviosr Detail</strong><br>
-                                  <br>
-                                  <b>Order ID:</b> 4F3S8J<br>
-                                  <b>Payment Due:</b> 2/22/2014<br>
-                                  <b>Account:</b> 968-34567
+                                  <address>
+                                        <strong>Name</strong><br>
+                                        {{ $student[0]['sup_fname'].' '.$student[0]['sup_lname'] }}<br>
+                                        <strong>Email</strong><br>
+                                        {{ $student[0]['sup_email'] }}<br>
+                                        <strong>Phone</strong><br>
+                                        {{ $student[0]['sup_phone']}}
+                                    </address>
                                 </div><!-- /.col -->
+                                
+                       
+                                <div class="col-sm-3 invoice-col">
+                                  <strong>Organization Detail</strong><br>
+                                    <address>
+                                    <strong>Name</strong><br>
+                                    {{ $student[0]['org_name']}}<br>
+                                    <strong>Address</strong><br>
+                                    {{ $student[0]['org_address'] }}<br>
+                                    </address>
+                                </div><!-- /.col -->
+                              
                               </div><!-- /.row -->
                     
                               <!-- this row will not appear when printing -->

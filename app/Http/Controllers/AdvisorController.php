@@ -186,10 +186,18 @@ class AdvisorController extends Controller {
             'students.std_gradYear',
             'volunteer_hours.vh_done',
             'services.ser_name',
-            'services.ser_desc'
+            'services.ser_desc',
+            'supervisors.sup_fname',
+            'supervisors.sup_lname',
+            'supervisors.sup_email',
+            'supervisors.sup_phone',
+            'organizations.org_name',
+            'organizations.org_address'
            )
             ->join('volunteer_hours', 'volunteer_hours.std_id', '=', 'students.std_id')
             ->join('services', 'services.std_id', '=', 'students.std_id')
+            ->join('supervisors', 'supervisors.sup_id', '=', 'services.sup_id')
+            ->join('organizations', 'organizations.org_id', '=', 'services.org_id')
             ->where('students.std_id','=',$id)
             ->get();
             
@@ -198,6 +206,7 @@ class AdvisorController extends Controller {
             }, $student);
                         
             //var_dump($student);
+            
             return view('advisor.manage_student_dtl', ['student' => $student]);
    } 
     
