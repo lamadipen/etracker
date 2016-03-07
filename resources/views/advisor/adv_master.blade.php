@@ -19,7 +19,12 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load.         -->
     {!! Html::style( asset('backend/dist/css/skins/_all-skins.min.css') ) !!} 
+       
+    {!! Html::script( asset('backend/plugins/jQuery/jQuery-2.1.4.min.js') ) !!}
+    {!! Html::script( asset('backend/plugins/datepicker/bootstrap-datepicker.js') ) !!}
+
     
+    {!! Html::style( asset('backend/plugins/datepicker/datepicker3.css') ) !!} 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -247,7 +252,7 @@
                 <i class="fa fa-dashboard"></i> <span>Setting</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="{{ url('/advisor/schoolYear') }}"><i class="fa fa-circle-o"></i>Establish School Year</a></li>
+                <li class="active"><a href="{{ url('/schoolYear') }}"><i class="fa fa-circle-o"></i>Establish School Year</a></li>
                 <li><a href="{{ url('/advisor/notification') }}"><i class="fa fa-circle-o"></i> Send Notification</a></li>
               </ul>
             </li>

@@ -17,10 +17,6 @@ Route::get('/', function () {
 Route::get('advisor/notification', function(){
 	return view("advisor.advisor_notification");
 }); 
-Route::get('advisor/schoolYear', function(){
-	return view("advisor.school_year");
-}); 
-//advisor controller
 
 Route::group(['prefix' => 'adv'],function(){
 
@@ -39,6 +35,9 @@ Route::post('advisor/send_invitation','AdvisorController@sendEmailInvitation');
 Route::resource('advisor','AdvisorController');
 Route::resource('service_type','ServiceTypeController');
 Route::resource('setting','SettingController');
+Route::resource('schoolYear','SchoolYearController');
+
+
 Route::get('invite', function() { return View::make('advisor.advisor_invite'); });
 
 Route::resource('student_service','StudentController');
