@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 
 use App\Advisor;
 use App\Student;
+use App\VolunteerHour;
 use Auth;
 use Redirect;
 use Mail;
@@ -209,6 +210,42 @@ class AdvisorController extends Controller {
             
             return view('advisor.manage_student_dtl', ['student' => $student]);
    } 
+   
+    /**
+     * Display list of student to manage their hour 
+     * @return Response
+    */
+   public function listStudentHour()
+   {
+        /**
+        $student_all = Student::all();
+
+        foreach ($student_all as $student) {
+            echo $student->vol_hours->vh_done;
+        }
+        **/
+        
+        $student_all = Student::with('vol_hours')->get();
+
+        return view('advisor.manage_volunteer_hr_list')->with('students', $student_all); 
+                  
+   } 
+    
+    /**
+     * Update volunteer hour of a student
+     * @return Response
+    */
+   public function updateStudentHour(Request $request)
+   {
+        $id = $request->vh_id;
+        $vol_hour = VolunteerHour::findOrFail($id);
+        
+        $vol_hour_update['vh_done'] = $request->edited_hr;
+        
+        $vol_hour->update($vol_hour_update);
+        
+        return redirect()->action('AdvisorController@listStudentHour');       
+   }  
     
     
     /**

@@ -226,7 +226,7 @@
               </a>
             </li>
             <li>
-              <a href="pages/mailbox/mailbox.html">
+              <a href="{{ url('advisor/manage_volunteer_hour') }}">
                 <i class="fa fa-envelope"></i> <span>Manage Volunteer Hour</span>
               </a>
             </li>

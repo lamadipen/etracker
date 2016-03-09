@@ -27,8 +27,12 @@ Route::group(['prefix' => 'adv'],function(){
 //Route::get('advisor/login', function() { return View::make('advisor.adv_login'); });
 Route::get('advisor/manage_student', 'AdvisorController@listAllStudent');
 Route::get('advisor/student_detail/{id}', 'AdvisorController@getStudentDetail');
+Route::get('advisor/manage_volunteer_hour', 'AdvisorController@listStudentHour');
 
 Route::post('advisor/send_invitation','AdvisorController@sendEmailInvitation');
+Route::post('advisor/update_volunteer_hour','AdvisorController@updateStudentHour');
+
+
 //Route::post('advisor/login', 'AdvisorController@authenticate'); 
 
 
