@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use App\Advisor;
 use App\Student;
 use App\VolunteerHour;
+use App\Service;
 use Auth;
 use Redirect;
 use Mail;
@@ -225,8 +226,8 @@ class AdvisorController extends Controller {
         }
         **/
         
-        $student_all = Student::with('vol_hours')->get();
-
+        $student_all = Student::with('vol_hours','services')->get();
+        
         return view('advisor.manage_volunteer_hr_list')->with('students', $student_all); 
                   
    } 
@@ -245,7 +246,22 @@ class AdvisorController extends Controller {
         $vol_hour->update($vol_hour_update);
         
         return redirect()->action('AdvisorController@listStudentHour');       
-   }  
+   } 
+   
+    /**
+     * Update volunteer service status of a student
+     * @return Response
+    */
+   public function updateServiceStatus($id=null,$status =null)
+   {       
+        $service = Service::findOrFail($id);
+        
+        $service_update['status'] = $status;
+        
+        $service->update($service_update);
+        
+        return redirect()->action('AdvisorController@listStudentHour');       
+   }   
     
     
     /**

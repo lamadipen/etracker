@@ -1,3 +1,4 @@
+
         @extends('advisor.adv_master')
         <style>
             td.custom_edit_btn:hover .btn_hide{
@@ -43,6 +44,7 @@
     								<tr>    								
     									<th>Name</th>
                                         <th>Email</th>
+                                        <th>Service</th>
                                         <th>Work Hour</th>
     									<th>Active</th>
                                         <th>Action</th>
@@ -54,6 +56,7 @@
     								<tr>
     									<td><a href="{{ url('advisor/student_detail/'.$student->std_id ) }}" >{{ $student->std_fname." ".$student->std_lname }} </a></td>
                                         <td>{{ $student->std_email }} </td>
+                                        <td>{{ $student->services['ser_name'] }} </td>
                                         <td class="custom_edit_btn">{{ $student->vol_hours->vh_done}} 
                                             <a href="#" class="btn btn-primary btn-xs btn_hide" data-toggle="modal" data-target="#edit_hours_{{ $student->vol_hours->vh_id }}">Edit</a>
                                         </td>
@@ -64,8 +67,11 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a class="btn btn-primary  btn-xs" href="">Accept</a> |
-                                            <a class="btn btn-danger  btn-xs" href="">Reject</a>                                                                         
+                                            @if($student->services['status'] == 'reject' || $student->services['status'] == null)
+                                                <a class="btn btn-primary  btn-xs" href="{{ url('advisor/update_service_status/'. $student->services['ser_id'].'/accept') }}">Accept</a>
+                                            @else
+                                                <a class="btn btn-danger  btn-xs" href="{{ url('advisor/update_service_status/'.$student->services['ser_id'].'/reject') }}">Reject</a>
+                                            @endif                                                                                                                                                                 
                                         </td>
                                         <!-- Model ................................................................................. -->  
                                         <div class="modal fade" id="edit_hours_{{ $student->vol_hours->vh_id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
