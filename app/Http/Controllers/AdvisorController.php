@@ -18,11 +18,7 @@ class AdvisorController extends Controller {
 
     public function __construct()
     {
-        if (Auth::check()) {
-            // The user is logged in...
-            echo "not loged in";
-            exit();
-        }
+        $this->middleware('auth');
     }
 
 	/**
