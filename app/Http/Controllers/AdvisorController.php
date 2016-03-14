@@ -18,7 +18,7 @@ class AdvisorController extends Controller {
 
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
 	/**
@@ -264,7 +264,7 @@ class AdvisorController extends Controller {
      * Handle an authentication attempt.
      *
      * @return Response
-     */
+   
     public function authenticate(Request $request)
     {                   
         $email = $request->identity;
@@ -279,10 +279,10 @@ class AdvisorController extends Controller {
         else
         {
             echo "Fail";
-            return redirect()->route('advisor/advisor.login');
+            return redirect()->route('/advisor/advisor.login');
         }         
     }
-
+      */
     public function getLogin(){
             return view('hello');
     }

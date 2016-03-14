@@ -28,7 +28,7 @@
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
         
-        <form action="{{ url('/advisor/login') }}" method="post">
+        <form action="{{ url('/auth/login') }}" method="post">
           <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Email" name="identity"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
