@@ -30,5 +30,5 @@ class Advisor extends Model implements AuthenticatableContract{
     public function getAuthPassword() {
         return $this->adv_password;
     }
-
+ 
 }

@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+
 class Authenticate
 {
     /**
@@ -22,6 +23,7 @@ class Authenticate
                 return response('Unauthorized.', 401);
             } else {
                 return redirect()->guest('advisor/login');
+                //return redirect()->guest('login');
             }
         }
 

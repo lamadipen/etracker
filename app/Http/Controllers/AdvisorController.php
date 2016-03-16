@@ -10,7 +10,6 @@ use App\Advisor;
 use App\Student;
 use App\VolunteerHour;
 use App\Service;
-use Auth;
 use Redirect;
 use Mail;
 
@@ -258,33 +257,5 @@ class AdvisorController extends Controller {
         
         return redirect()->action('AdvisorController@listStudentHour');       
    }   
-    
-    
-    /**
-     * Handle an authentication attempt.
-     *
-     * @return Response
-   
-    public function authenticate(Request $request)
-    {                   
-        $email = $request->identity;
-        $password = $request->password;        
-    
-        if (Auth::attempt(['adv_email' => $email, 'password' => $password])) {
-            
-            // Redirect::to('advisor')->send();
-            // Authentication passed... 
-            return redirect()->intended('advisor');        
-        } 
-        else
-        {
-            echo "Fail";
-            return redirect()->route('/advisor/advisor.login');
-        }         
-    }
-      */
-    public function getLogin(){
-            return view('hello');
-    }
 
 }

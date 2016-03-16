@@ -194,85 +194,119 @@
       </header>
       
       
-      @if (Auth::guest())
-    		  
-      @section('left_nav_template')
-      <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-     
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="pull-right"></i>
-              </a>
-            </li>
-            <li>
-              <a href="{{ url('/invite') }}">
-                <i class="fa fa-envelope"></i> <span>Invite</span>
-              </a>
-            </li>
-            <li>
-              <a href="{{ url('/advisor') }}">
-                <i class="fa fa-envelope"></i> <span>Manage Advisor</span>
-              </a>
-            </li>
-            <li>
-              <a href="{{ url('advisor/manage_student')}}">
-                <i class="fa fa-envelope"></i> <span>Manage Student</span>
-              </a>
-            </li>
-            <li>
-              <a href="{{ url('advisor/manage_volunteer_hour') }}">
-                <i class="fa fa-envelope"></i> <span>Manage Volunteer Hour</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Manage Service</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li>
-                  <a href="{{ url('/setting') }}">
-                    <i class="fa fa-envelope"></i> <span>Hour Requirement</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ url('/service_type') }}">
-                    <i class="fa fa-envelope"></i> <span>Service Type</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Setting</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li class="active"><a href="{{ url('/schoolYear') }}"><i class="fa fa-circle-o"></i>Establish School Year</a></li>
-                <li><a href="{{ url('/advisor/notification') }}"><i class="fa fa-circle-o"></i> Send Notification</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="{{ url('/advisor/1') }}">
-                <i class="fa fa-envelope"></i> <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <a href="{{ url('/') }}">
-                <i class="fa fa-envelope"></i> <span>Logout</span>
-              </a>
-            </li>
-          </ul>
-        </section>
-        <!-- /.sidebar -->
-      </aside>
-      @show
-      @else
-    
+      @if (Auth::user())
+        @if(Auth::user()->is_admin == 1)
+              @section('left_nav_template')
+              <!-- Left side column. contains the logo and sidebar -->
+              <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+             
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+                  <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active treeview">
+                      <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="pull-right"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('/invite') }}">
+                        <i class="fa fa-envelope"></i> <span>Invite</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('/advisor') }}">
+                        <i class="fa fa-envelope"></i> <span>Manage Advisor</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('advisor/manage_student')}}">
+                        <i class="fa fa-envelope"></i> <span>Manage Student</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('advisor/manage_volunteer_hour') }}">
+                        <i class="fa fa-envelope"></i> <span>Manage Volunteer Hour</span>
+                      </a>
+                    </li>
+                    <li class="treeview">
+                      <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Manage Service</span> <i class="fa fa-angle-left pull-right"></i>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li>
+                          <a href="{{ url('/setting') }}">
+                            <i class="fa fa-envelope"></i> <span>Hour Requirement</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="{{ url('/service_type') }}">
+                            <i class="fa fa-envelope"></i> <span>Service Type</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="treeview">
+                      <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Setting</span> <i class="fa fa-angle-left pull-right"></i>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li class="active"><a href="{{ url('/schoolYear') }}"><i class="fa fa-circle-o"></i>Establish School Year</a></li>
+                        <li><a href="{{ url('/advisor/notification') }}"><i class="fa fa-circle-o"></i> Send Notification</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="{{ url('/advisor/1') }}">
+                        <i class="fa fa-envelope"></i> <span>My Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('/') }}">
+                        <i class="fa fa-envelope"></i> <span>Logout</span>
+                      </a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /.sidebar -->
+              </aside>
+              @show
+        @else
+                           @section('left_nav_template')
+              <!-- Left side column. contains the logo and sidebar -->
+              <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+             
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+                  <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active treeview">
+                      <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="pull-right"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('advisor/manage_student')}}">
+                        <i class="fa fa-envelope"></i> <span>Manage Student</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('/advisor/1') }}">
+                        <i class="fa fa-envelope"></i> <span>My Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('/') }}">
+                        <i class="fa fa-envelope"></i> <span>Logout</span>
+                      </a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /.sidebar -->
+              </aside>
+              @show  
+        @endif
       @endif
       
       @section('body_template')  
