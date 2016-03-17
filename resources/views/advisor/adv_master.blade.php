@@ -257,12 +257,12 @@
                       </ul>
                     </li>
                     <li>
-                      <a href="{{ url('/advisor/1') }}">
+                      <a href="{{ url('/advisor/') }}">
                         <i class="fa fa-envelope"></i> <span>My Profile</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{ url('/') }}">
+                      <a href="{{ url('advisor/logout') }}">
                         <i class="fa fa-envelope"></i> <span>Logout</span>
                       </a>
                     </li>
@@ -272,7 +272,7 @@
               </aside>
               @show
         @else
-                           @section('left_nav_template')
+              @section('left_nav_template')
               <!-- Left side column. contains the logo and sidebar -->
               <aside class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
@@ -292,12 +292,12 @@
                       </a>
                     </li>
                     <li>
-                      <a href="{{ url('/advisor/1') }}">
+                      <a href="{{ url('/advisor/') }}">
                         <i class="fa fa-envelope"></i> <span>My Profile</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{ url('/') }}">
+                      <a href="{{ url('advisor/logout') }}">
                         <i class="fa fa-envelope"></i> <span>Logout</span>
                       </a>
                     </li>

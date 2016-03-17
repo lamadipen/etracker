@@ -79,7 +79,8 @@ class AdvisorController extends Controller {
 	{
 		//
         $advisor = Advisor::find($id);
-        return view('advisor.advisor_profile')->with('advisor',$advisor);
+        var_dump($advisor);
+        //return view('advisor.advisor_profile')->with('advisor',$advisor);
 	}
 
 	/**
