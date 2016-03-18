@@ -7,6 +7,15 @@ class Student extends Model {
 	//
     protected $table = 'students';
     
+    protected $primaryKey = 'std_id';
+    
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['std_isActive'];
+    
     /**
      * Get the volunteer hours  for the student post.
      */

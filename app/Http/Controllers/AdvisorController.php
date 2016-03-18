@@ -258,5 +258,20 @@ class AdvisorController extends Controller {
         
         return redirect()->action('AdvisorController@listStudentHour');       
    }   
+   
+    /**
+     * Update student status 
+     * @return Response
+    */
+   public function updateStudentStatus($id=null,$status =null)
+   {       
+        $student = Student::findOrFail($id);
+       
+        $student_update['std_isActive'] = $status;
+        
+        $student->update($student_update);
+        
+        return redirect()->action('AdvisorController@listAllStudent');       
+   }  
 
 }

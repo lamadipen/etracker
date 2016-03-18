@@ -6,7 +6,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-           Advisor 
+           Manage Student 
             <small>Section</small>
           </h1>
         </section>
@@ -50,8 +50,11 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a class="btn btn-success  btn-xs" href="">Active</a>
-                                            <a class="btn btn-danger  btn-xs" href="">Inactive</a>
+                                            @if($student->std_isActive == 0)
+                                            <a class="btn btn-success  btn-xs" href="{{ url('advisor/update_student_status/'.$student->std_id.'/1') }}">Activate</a>
+                                            @else
+                                            <a class="btn btn-danger  btn-xs" href="{{ url('advisor/update_student_status/'.$student->std_id.'/0') }}">Inactivate</a>
+                                            @endif
                                         </td>
     								</tr>
     							    @endforeach 

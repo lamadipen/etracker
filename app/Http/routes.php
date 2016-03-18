@@ -49,6 +49,7 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::get('advisor/student_detail/{id}', 'AdvisorController@getStudentDetail');
     Route::get('advisor/manage_volunteer_hour', 'AdvisorController@listStudentHour');
     Route::get('advisor/update_service_status/{id}/{status}', 'AdvisorController@updateServiceStatus');
+    Route::get('advisor/update_student_status/{id}/{status}', 'AdvisorController@updateStudentStatus');
     Route::get('invite', function() { return View::make('advisor.advisor_invite'); });
     
     Route::post('advisor/send_invitation','AdvisorController@sendEmailInvitation');
