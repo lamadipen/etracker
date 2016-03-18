@@ -5,8 +5,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-           Dash
-            <small>Version 2.0</small>
+           Invite
+            <small>Section</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

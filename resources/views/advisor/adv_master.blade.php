@@ -2,7 +2,7 @@
 <html>
    <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Eservice | Tracker</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     {!! Html::style( asset('/backend/bootstrap/css/bootstrap.min.css') ) !!} 
@@ -42,7 +42,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>Eservice</b>Tracker</span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
