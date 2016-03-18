@@ -257,7 +257,7 @@
                       </ul>
                     </li>
                     <li>
-                      <a href="{{ url('/advisor/') }}">
+                      <a href="{{ url('advisor', [Auth::user()->adv_id]) }}">
                         <i class="fa fa-envelope"></i> <span>My Profile</span>
                       </a>
                     </li>
@@ -287,12 +287,17 @@
                       </a>
                     </li>
                     <li>
+                      <a href="{{ url('advisor/manage_volunteer_hour') }}">
+                        <i class="fa fa-envelope"></i> <span>Manage Volunteer Hour</span>
+                      </a>
+                    </li>
+                    <li>
                       <a href="{{ url('advisor/manage_student')}}">
                         <i class="fa fa-envelope"></i> <span>Manage Student</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{ url('/advisor/') }}">
+                      <a href="{{ url('advisor', [Auth::user()->adv_id]) }}">
                         <i class="fa fa-envelope"></i> <span>My Profile</span>
                       </a>
                     </li>

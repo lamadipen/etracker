@@ -22,6 +22,7 @@ class CreateServicesTable extends Migration {
             $table->integer('sup_id');
             $table->integer('org_id');
             $table->integer('sers_id');
+			$table->char('status', 10);
 			$table->timestamps();
 		});
 	}
