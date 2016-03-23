@@ -23,10 +23,14 @@
     {!! Html::style( asset('backend/plugins/datepicker/datepicker3.css') ) !!} 
     <!-- Theme style    -->
     {!! Html::style( asset('backend/dist/css/AdminLTE.min.css') ) !!} 
+    
+    {!! Html::style( asset('backend/dist/css/jQueryUI/jquery-ui-1.10.4.custom.min.css') ) !!} 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load.    -->      
     {!! Html::style( asset('backend/dist/css/skins/_all-skins.min.css') ) !!} 
        
+
+    {!! Html::script( asset('backend/plugins/datepicker_custom/jquery-ui-1.10.4.custom.min.js') ) !!}
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,6 +38,25 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+<style type="text/css">
+<!--
+.ui-datepicker-title{
+   font-size: 12px !important;
+   font-weight: normal !important;
+   color: #444444 !important;
+}
+.ui_tpicker_time_label, .ui_tpicker_hour_label, .ui_tpicker_minute_label{
+    font-size: 12px !important;
+   font-weight: bold !important;
+   color: #444444 !important;
+}
+.ui-datepicker-buttonpane, .ui-widget-content{
+    font-size: 12px!important;
+}
+-->
+</style>
+    
   </head>
   <body class="skin-blue sidebar-mini">
     <div class="wrapper">
