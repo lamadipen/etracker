@@ -37,9 +37,21 @@
                 
                 <div class="box-body no-padding">
                   <div class="row">
-                    <div class="col-md-10 col-sm-9">
+                    <br />
+                    <div class="col-md-10 col-sm-9 clearfix">
+                      <div class="col-md-4 ">
+                        <div class="form-group">
+                            <form method="POST" action="{{ url('/advisor/manage_volunteer_hour') }}" role="form" accept-charset="UTF-8">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        		<label>Filter by Year</label>
+                        		<input class="form-control" placeholder="Year (e.g. 2014)" name="sYear" type="text" value="">
+                                <br />
+                                <input class="btn btn-primary btn-xs" name="search" type="submit" value="Search">
+                            </form>
+                    	</div>
+                      </div>  
                       <div class="pad col-md-12">                        	
-                            <table class="table">
+                            <table class="table" id="manage_vol_hr" >
     							<thead>
     								<tr>    								
     									<th>Name</th>
@@ -110,3 +122,24 @@
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->    
       @endsection
+      
+    <!-- DATATABLE RELATED CODE START -->
+    <!-- jQuery 2.1.4 -->
+    {!! Html::script( asset('backend/plugins/jQuery/jQuery-2.1.4.min.js') ) !!}
+    
+    <!-- bootstrap datatables -->
+    {!! Html::style( asset('backend/plugins/datatables/dataTables.bootstrap.css') ) !!}
+      
+    <!-- DATA TABES SCRIPT -->
+    {!! Html::script( asset('backend/plugins/datatables/jquery.dataTables.min.js') ) !!}
+    {!! Html::script( asset('backend/plugins/datatables/dataTables.bootstrap.min.js') ) !!}
+    <!-- DATATABLE RELATED CODE END -->
+    
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+      
+      /** implementing datatables**/
+      $j(function () {
+        $j("#manage_vol_hr").dataTable();
+      });
+    </script>

@@ -272,6 +272,21 @@ class AdvisorController extends Controller {
         $student->update($student_update);
         
         return redirect()->action('AdvisorController@listAllStudent');       
-   }  
+   }
+   
+    /**
+     * Display list of student by year to manage their hour 
+     * @return Response
+    */
+   public function listStudentHourByYear(Request $request)
+   {
+        
+        $std_year = $request->sYear;
+        
+        $student_all = Student::with('vol_hours','services')->where('std_gradYear', $std_year)->get();
+   
+        return view('advisor.manage_volunteer_hr_list')->with('students', $student_all); 
+                  
+   }   
 
 }

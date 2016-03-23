@@ -54,7 +54,7 @@ Route::group(['middleware' => ['web','auth']], function () {
     
     Route::post('advisor/send_invitation','AdvisorController@sendEmailInvitation');
     Route::post('advisor/update_volunteer_hour','AdvisorController@updateStudentHour');
-    
+    Route::post('advisor/manage_volunteer_hour', 'AdvisorController@listStudentHourByYear');
     
     Route::resource('advisor','AdvisorController');
     Route::resource('service_type','ServiceTypeController');

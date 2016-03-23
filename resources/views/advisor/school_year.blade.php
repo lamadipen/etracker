@@ -61,10 +61,17 @@
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       @endsection
-      <script type="text/javascript">
-      $(function () {
-        //Date range picker
-        $('#new_sch_year').daterangepicker();
-    });
       
+      <script type="text/javascript">
+    
+    
+        $(document).ready(function() { alert('he'); });
+        //Date range picker
+        
+        /**
+        var $ = jQuery;
+        $(function() {
+            $( "#new_sch_year" ).datepicker();
+        });
+        **/
       </script>

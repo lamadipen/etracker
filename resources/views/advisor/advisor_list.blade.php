@@ -29,7 +29,7 @@
                     <div class="col-md-10 col-sm-9">
                       <div class="pad col-md-12">
                         		<a href="{{ url('/advisor/create') }}" class="btn btn-primary btn-sm">Add Advisor</a>
-                            <table class="table">
+                            <table class="table table-striped" id="manage_adv">
     							<thead>
     								<tr>    								
     									<th>Name</th>
@@ -74,3 +74,24 @@
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       @endsection
+    
+    <!-- DATATABLE RELATED CODE START -->
+    <!-- jQuery 2.1.4 -->
+    {!! Html::script( asset('backend/plugins/jQuery/jQuery-2.1.4.min.js') ) !!}
+    
+    <!-- bootstrap datatables -->
+    {!! Html::style( asset('backend/plugins/datatables/dataTables.bootstrap.css') ) !!}
+      
+    <!-- DATA TABES SCRIPT -->
+    {!! Html::script( asset('backend/plugins/datatables/jquery.dataTables.min.js') ) !!}
+    {!! Html::script( asset('backend/plugins/datatables/dataTables.bootstrap.min.js') ) !!}
+    <!-- DATATABLE RELATED CODE END -->
+      
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+      
+      /** implementing datatables**/
+      $j(function () {
+        $j("#manage_adv").dataTable();
+      });
+    </script>
