@@ -21,7 +21,8 @@ class Student extends Model {
      */
     public function vol_hours()
     {
-         return $this->belongsTo('App\VolunteerHour','std_id');
+         //return $this->belongsTo('App\VolunteerHour','std_id');
+         return $this->hasMany('App\VolunteerHour', 'std_id');
     }
     
     /**
@@ -29,7 +30,8 @@ class Student extends Model {
     */ 
     public function services()
     {
-         return $this->belongsTo('App\Service','std_id');
+         //return $this->belongsTo('App\Service','std_id');
+         return $this->hasMany('App\Service', 'std_id');
     }
     
     

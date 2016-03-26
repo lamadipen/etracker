@@ -222,8 +222,33 @@ class AdvisorController extends Controller {
         }
         **/
         
-        $student_all = Student::with('vol_hours','services')->get();
+        //$student_all = Student::with('vol_hours','services')->get();
+        //$student_all = Student::with('vol_hours','services')->get();
+         
+        $students = \DB::table('students')
+            ->select('students.std_id',
+            'students.std_fname',
+            'students.std_lname',
+            'students.std_email',
+            'students.std_isActive',
+            'students.std_gradYear',
+            'volunteer_hours.vh_id',
+            'volunteer_hours.vh_done',
+            'services.ser_name',
+            'services.ser_desc',
+            'services.status',
+            'services.ser_id'
+           )
+            ->join('services', 'services.std_id', '=', 'students.std_id')
+            ->join('volunteer_hours', 'volunteer_hours.ser_id', '=', 'services.ser_id')
+            ->get();
+            
+            $student_all = array_map(function($object){
+                return (array) $object;
+            }, $students);
         
+        
+        //var_dump($student_all);
         return view('advisor.manage_volunteer_hr_list')->with('students', $student_all); 
                   
    } 
@@ -283,7 +308,30 @@ class AdvisorController extends Controller {
         
         $std_year = $request->sYear;
         
-        $student_all = Student::with('vol_hours','services')->where('std_gradYear', $std_year)->get();
+        //$student_all = Student::with('vol_hours','services')->where('std_gradYear', $std_year)->get();
+        $students = \DB::table('students')
+            ->select('students.std_id',
+            'students.std_fname',
+            'students.std_lname',
+            'students.std_email',
+            'students.std_isActive',
+            'students.std_gradYear',
+            'volunteer_hours.vh_id',
+            'volunteer_hours.vh_done',
+            'services.ser_name',
+            'services.ser_desc',
+            'services.status',
+            'services.ser_id'
+           )
+            ->join('services', 'services.std_id', '=', 'students.std_id')
+            ->join('volunteer_hours', 'volunteer_hours.ser_id', '=', 'services.ser_id')
+            ->where('std_gradYear', '=', $std_year)
+            ->get();
+            
+            $student_all = array_map(function($object){
+                return (array) $object;
+            }, $students);
+        
    
         return view('advisor.manage_volunteer_hr_list')->with('students', $student_all); 
                   
