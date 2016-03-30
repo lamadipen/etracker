@@ -45,7 +45,7 @@ class CustomAuthController extends Controller
         {
            //return redirect()->intended('advisor');  
            //return Redirect::back();
-            Redirect::to('advisor/login')->send();
+            Redirect::to('advisor/login')->with('errors', 'Login Failed.')->send();
         }      
     }
     

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Log in</title>
+    <title>Eservice Tracker | Log in</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="{{ asset('backend/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -26,8 +26,10 @@
        <!-- <a href="../../index2.html"><b>Eservice</b>Tracker</a> -->
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
-        
+        <p class="login-box-msg">Sign in to Eservice Tracker</p>
+        @if (count($errors) > 0)
+           <div class="alert alert-danger">{{ $errors }}</div>                            
+        @endif 
         <form action="{{ url('/auth/login') }}" method="post">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group has-feedback">
@@ -39,20 +41,24 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
-            <div class="col-xs-8">    
+            <div class="col-xs-8">  
+               <!--
               <div class="checkbox icheck">
                 <label>
                   <input type="checkbox"> Remember Me
                 </label>
-              </div>                        
+              </div>
+              -->                        
             </div><!-- /.col -->
             <div class="col-xs-4">
               <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
             </div><!-- /.col -->
           </div>
         </form>
-
+        
+        <!-- 
         <a href="#">I forgot my password</a><br>
+        -->           
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 

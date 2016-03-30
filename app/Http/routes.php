@@ -14,16 +14,16 @@
 
 
 
-Route::group(['middleware' => ['web']], function () {
+    Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
         return View::make('advisor.adv_login');
     });
-
     Route::get('advisor/login', function() { return View::make('advisor.adv_login'); });
-
-
     Route::post('auth/login', 'Auth\CustomAuthController@postLogin'); 
     Route::get('advisor/logout', function(){ Auth::logout() ; return View::make('advisor.adv_login');});
+    
+    Route::get('advisor/register', 'AdvisorController@create');
+    Route::post('advisor/register', 'AdvisorController@store'); 
 });
 
 
@@ -55,6 +55,7 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::post('advisor/send_invitation','AdvisorController@sendEmailInvitation');
     Route::post('advisor/update_volunteer_hour','AdvisorController@updateStudentHour');
     Route::post('advisor/manage_volunteer_hour', 'AdvisorController@listStudentHourByYear');
+    Route::post('advisor/search_student', 'AdvisorController@searchStdByName');
     
     Route::resource('advisor','AdvisorController');
     Route::resource('service_type','ServiceTypeController');
